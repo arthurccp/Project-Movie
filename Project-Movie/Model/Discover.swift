@@ -12,7 +12,7 @@ struct Discover: Decodable{
     let total_pages: Int
 }
 
-struct Movie: Identifiable, Decodable {
+struct Movie: Identifiable, Decodable, Equatable {
     let id: Int
     let title: String
     let overview: String?
