@@ -13,12 +13,16 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView{
-            ZStack{
-                if let movies = viewModel.movies{
-                    MoviesListView(viewModel: viewModel, movies: movies)
-                }else{
-                    Text("Fetching data...")
-                        .foregroundColor(.gray)
+            VStack{
+                SearchBar()
+                    Spacer()
+                ZStack{
+                    if let movies = viewModel.movies{
+                        MoviesListView(viewModel: viewModel, movies: movies)
+                    }else{
+                        Text("Fetching data...")
+                            .foregroundColor(.gray)
+                    }
                 }
             }
             .navigationTitle("Popular Movies")
@@ -29,6 +33,33 @@ struct ContentView: View {
             .padding()
     }
 }
+
+struct SearchBar: UIViewRepresentable {
+  typealias UIViewType = UISearchBar
+  
+
+  func makeUIView(context: Context) -> UISearchBar {
+      let searchBar = UISearchBar(frame: .zero)
+    searchBar.delegate = context.coordinator
+    searchBar.searchBarStyle = .minimal
+    searchBar.placeholder = "Type a song, artist, or album name..."
+    return searchBar
+  }
+  
+  func updateUIView(_ uiView: UISearchBar, context: Context) {
+  }
+  
+  func makeCoordinator() -> SearchBarCoordinator {
+    return SearchBarCoordinator()
+  }
+  
+  class SearchBarCoordinator: NSObject, UISearchBarDelegate {
+    
+
+  }
+}
+
+
 struct MovieView: View {
     var movie: Movie
     

@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E340532527B6B13C00FC7E84 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E340532427B6B13C00FC7E84 /* SDWebImageSwiftUI */; };
 		E3ABEDA027B4208800A9F860 /* Project_MovieApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ABED9F27B4208800A9F860 /* Project_MovieApp.swift */; };
 		E3ABEDA227B4208800A9F860 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ABEDA127B4208800A9F860 /* ContentView.swift */; };
 		E3ABEDA427B4208D00A9F860 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ABEDA327B4208D00A9F860 /* Assets.xcassets */; };
 		E3ABEDA727B4208D00A9F860 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3ABEDA627B4208D00A9F860 /* Preview Assets.xcassets */; };
 		E3ABEDB027B422D800A9F860 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ABEDAF27B422D800A9F860 /* MovieViewModel.swift */; };
 		E3ABEDB327B42BE100A9F860 /* Discover.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3ABEDB227B42BE100A9F860 /* Discover.swift */; };
-		E3ABEDB627B4370A00A9F860 /* SDWebImageSwiftUI in Frameworks */ = {isa = PBXBuildFile; productRef = E3ABEDB527B4370A00A9F860 /* SDWebImageSwiftUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,7 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E3ABEDB627B4370A00A9F860 /* SDWebImageSwiftUI in Frameworks */,
+				E340532527B6B13C00FC7E84 /* SDWebImageSwiftUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +110,7 @@
 			);
 			name = "Project-Movie";
 			packageProductDependencies = (
-				E3ABEDB527B4370A00A9F860 /* SDWebImageSwiftUI */,
+				E340532427B6B13C00FC7E84 /* SDWebImageSwiftUI */,
 			);
 			productName = "Project-Movie";
 			productReference = E3ABED9C27B4208800A9F860 /* Project-Movie.app */;
@@ -140,7 +140,7 @@
 			);
 			mainGroup = E3ABED9327B4208800A9F860;
 			packageReferences = (
-				E3ABEDB427B4370A00A9F860 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
+				E340532327B6B13C00FC7E84 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */,
 			);
 			productRefGroup = E3ABED9D27B4208800A9F860 /* Products */;
 			projectDirPath = "";
@@ -362,7 +362,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		E3ABEDB427B4370A00A9F860 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
+		E340532327B6B13C00FC7E84 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImageSwiftUI.git";
 			requirement = {
@@ -373,9 +373,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		E3ABEDB527B4370A00A9F860 /* SDWebImageSwiftUI */ = {
+		E340532427B6B13C00FC7E84 /* SDWebImageSwiftUI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = E3ABEDB427B4370A00A9F860 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
+			package = E340532327B6B13C00FC7E84 /* XCRemoteSwiftPackageReference "SDWebImageSwiftUI" */;
 			productName = SDWebImageSwiftUI;
 		};
 /* End XCSwiftPackageProductDependency section */
