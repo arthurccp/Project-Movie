@@ -9,6 +9,7 @@ import SwiftUI
 import SDWebImageSwiftUI
 
 struct ContentView: View {
+    
     @StateObject var viewModel = MoviewViewModel()
 
     var body: some View {
@@ -20,8 +21,7 @@ struct ContentView: View {
                     if let movies = viewModel.movies{
                         MoviesListView(viewModel: viewModel, movies: movies)
                     }else{
-                        Text("Fetching data...")
-                            .foregroundColor(.gray)
+                        loadingView()
                     }
                 }
             }
@@ -42,7 +42,7 @@ struct SearchBar: UIViewRepresentable {
       let searchBar = UISearchBar(frame: .zero)
     searchBar.delegate = context.coordinator
     searchBar.searchBarStyle = .minimal
-    searchBar.placeholder = "Type a song, artist, or album name..."
+    searchBar.placeholder = "Procure por um Filme..."
     return searchBar
   }
   

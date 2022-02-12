@@ -4,11 +4,13 @@
 //
 //  Created by Arthur Silva on 09/02/22.
 //
-
 import Foundation
 
 class MoviewViewModel: ObservableObject{
+    
     @Published var movies = [Movie]()
+    
+    
     var page: Int = 1
     var totalPages: Int = 1
     var isFetchingData = false
@@ -46,9 +48,11 @@ class MoviewViewModel: ObservableObject{
                 }
                 
             }else{
-                print("error \(error)")
+                print("error \(String(describing: error))")
                 return
             }
         }.resume()
     }
 }
+
+

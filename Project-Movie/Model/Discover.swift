@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct Discover: Decodable{
     let results: [Movie]
     let total_pages: Int
