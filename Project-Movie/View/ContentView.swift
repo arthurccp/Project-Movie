@@ -5,6 +5,8 @@
 //  Created by Arthur Silva on 09/02/22.
 //
 
+//https://github.com/SDWebImage/SDWebImageSwiftUI.git
+
 import SwiftUI
 import SDWebImageSwiftUI
 
@@ -80,22 +82,25 @@ struct ContentView: View {
 
 
 
+
 struct BottomSheet: View {
-    
-    @State var text = ""
-    
+
+    @ObservedObject var viewModel2 = SearchUserViewModel()
+
     var body: some View {
         VStack{
             Capsule()
                 .fill(Color(white: 0.95))
                 .frame(width: 50, height: 5)
             
-            TextField("Pesquisar", text: $text)
-
+            SearchUserBar(text: $viewModel2.name) {
+                self.viewModel2.search()
+            }
+            
             ScrollView(.vertical, showsIndicators: false, content: {
                 LazyVStack(alignment: .leading){
-                    ForEach(1...30, id: \.self){
-                        Text("Ola \($0)")
+                    List(viewModel2.users) { user in
+                        SearchUserRow(viewModel: self.viewModel2, user: user)
                     }
                 }
             })
@@ -118,30 +123,6 @@ struct BlurShape: UIViewRepresentable{
     }
 }
 
-struct SearchBar: UIViewRepresentable {
-  typealias UIViewType = UISearchBar
-  
-
-  func makeUIView(context: Context) -> UISearchBar {
-      let searchBar = UISearchBar(frame: .zero)
-    searchBar.delegate = context.coordinator
-    searchBar.searchBarStyle = .minimal
-    searchBar.placeholder = "Procure por um Filme..."
-    return searchBar
-  }
-  
-  func updateUIView(_ uiView: UISearchBar, context: Context) {
-  }
-  
-  func makeCoordinator() -> SearchBarCoordinator {
-    return SearchBarCoordinator()
-  }
-  
-  class SearchBarCoordinator: NSObject, UISearchBarDelegate {
-    
-
-  }
-}
 
 
 struct MovieView: View {
