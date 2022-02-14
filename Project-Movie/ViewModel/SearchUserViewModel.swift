@@ -3,7 +3,7 @@ import Combine
 
 final class SearchUserViewModel: ObservableObject {
 
-    @Published var name = ""
+    @Published var name = "popularity.desc"
     @Published var name2 = "840ad3585933c9e95f925127c092c385"
  
 
@@ -41,3 +41,4 @@ final class SearchUserViewModel: ObservableObject {
     }
 
 }
+
