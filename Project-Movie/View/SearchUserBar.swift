@@ -6,7 +6,7 @@ struct SearchUserBar: View {
 
     var body: some View {
         ZStack {
-            Color.yellow
+            Color.gray
             HStack {
                 TextField("Search User", text: $text)
                     .frame(height: 32)
