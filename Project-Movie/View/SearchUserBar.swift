@@ -9,6 +9,7 @@ struct SearchUserBar: View {
             Color.yellow
             HStack {
                 TextField("Search User", text: $text)
+                    .padding([.leading, .trailing], 8)
                     .frame(height: 32)
                     .background(Color.white.opacity(0.4))
                     .cornerRadius(8)

@@ -13,10 +13,14 @@ import SDWebImageSwiftUI
 struct ContentView: View {
     
     @StateObject var viewModel = MoviewViewModel()
-    
+
     @State var offset: CGFloat = 0
     @State var translation: CGSize = CGSize(width: 0, height: 0)
     @State var location   : CGPoint = CGPoint(x: 0, y: 0)
+    
+    @StateObject var searchView = SearchUserViewModel()
+
+
 
     var body: some View {
         NavigationView{
@@ -30,22 +34,22 @@ struct ContentView: View {
                     }
                     .frame(maxHeight: .infinity)
                     GeometryReader { reader in
-                        BottomSheet()
+                    BottomSheet(viewModel: searchView)
                             .offset(y: reader.frame(in: .global).height-60)
                             .offset(y: offset)
                             .gesture(DragGesture().onChanged({ (value) in
                                 withAnimation{
                                     translation = value.translation
                                     location    = value.location
-                                    
-                                    if value.location.y > reader.frame(in: .global).midX{
+
+                                    if value.startLocation.y > reader.frame(in: .global).midX{
                                         if value.translation.height < 0 && offset > (-reader.frame(in: .global).height + 60){
                                             offset = value.translation.height
                                         }
                                     }
-                                    if value.location.y < reader.frame(in: .global).midX{
+                                    if value.startLocation.y < reader.frame(in: .global).midX{
                                         if value.translation.height > 0 && offset < 0{
-                                            offset = (-reader.frame(in: .global).height + 60) + translation.height
+                                            offset = (-reader.frame(in: .global).height + 60) + value.translation.height
                                         }
                                     }
                                 }
@@ -56,10 +60,10 @@ struct ContentView: View {
                                             offset = (-reader.frame(in: .global).height + 60)
                                             return
                                         }
-                                        
+
                                         offset = 0
                                     }
-                                    if value.startLocation.y > reader.frame(in: .global).midX{
+                                    if value.startLocation.y < reader.frame(in: .global).midX{
                                         if value.translation.height < reader.frame(in: .global).midX{
                                         offset = (-reader.frame(in: .global).height + 60)
                                         return
@@ -80,12 +84,9 @@ struct ContentView: View {
     }
 }
 
-
-
-
 struct BottomSheet: View {
 
-    @ObservedObject var viewModel2 = SearchUserViewModel()
+    @StateObject var viewModel = SearchUserViewModel()
 
     var body: some View {
         VStack{
@@ -93,17 +94,13 @@ struct BottomSheet: View {
                 .fill(Color(white: 0.95))
                 .frame(width: 50, height: 5)
             
-            SearchUserBar(text: $viewModel2.name) {
-                self.viewModel2.search()
-            }
-            
-            ScrollView(.vertical, showsIndicators: false, content: {
-                LazyVStack(alignment: .leading){
-                    List(viewModel2.users) { user in
-                        SearchUserRow(viewModel: self.viewModel2, user: user)
-                    }
+                SearchUserBar(text: $viewModel.name) {
+                    self.viewModel.search()
                 }
-            })
+                List(viewModel.users) { user in
+                    SearchUserRow(viewModel: self.viewModel, user: user)
+                }
+
         }
         .padding(.horizontal, 20)
         .padding(.bottom, 50)
@@ -113,7 +110,6 @@ struct BottomSheet: View {
     }
 }
 
-
 struct BlurShape: UIViewRepresentable{
     func makeUIView(context: Context) -> UIVisualEffectView {
         return UIVisualEffectView(effect: UIBlurEffect(style: .systemMaterial))
@@ -122,8 +118,6 @@ struct BlurShape: UIViewRepresentable{
         
     }
 }
-
-
 
 struct MovieView: View {
     var movie: Movie
@@ -191,3 +185,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+

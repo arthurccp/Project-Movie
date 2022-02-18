@@ -1,12 +1,12 @@
 import SwiftUI
 
 struct SearchUserRow: View {
-    @ObservedObject var viewModel: SearchUserViewModel
-    @State var user: Movie
+    @StateObject var viewModel: SearchUserViewModel
+    @State var user: Result
 
     var body: some View {
         HStack {
-            Text(user.title)
+            Text(user.originalTitle)
                 .font(Font.system(size: 18).bold())
             Spacer()
             }

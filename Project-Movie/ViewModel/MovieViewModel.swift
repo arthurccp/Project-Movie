@@ -10,7 +10,6 @@ class MoviewViewModel: ObservableObject{
     
     @Published var movies = [Movie]()
     
-    
     var page: Int = 1
     var totalPages: Int = 1
     var isFetchingData = false
