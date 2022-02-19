@@ -20,20 +20,7 @@ final class SearchUserViewModel: ObservableObject {
             return users = []
         }
 
-<<<<<<< HEAD
         var urlComponents = URLComponents(string: "https://api.themoviedb.org/3/search/movie")!
-=======
-        //Em verdade essa parte de buscar os filmes da API através de palavras chaves foi meu desafio hahaha de resto foi tranquilo pra mim. 
-        //Na documentação da API o link a ser usado é esse aqui:  https://api.themoviedb.org/3/keyword/{keyword_id}?api_key=<<api_key>>, mas no
-        //send request do próprio site da documentação ele retorna um 503 Service Unavailable, e quando preencho as variables e os path paramsm 
-        //manualmente ele me retorna que " recurso solicitado não foi encontrado ", não sei se estou fazendo algo errado ou esqueci de algum detalhe.
-        
-        //Eu tenho um app muito semelhante que busca nomes de usuario do github, portando minha dúvida não seria diretamente em como fazer, mas de 
-        //que forma, entende ? Me vendo neste cenário dentro da empresa esse seria oxato momento em que eu faria algumas perguntas a um desenvolvedor
-        //com mais experiência para me exclarecer alguns pontos.
-        
-        var urlComponents = URLComponents(string: "https://api.themoviedb.org/3/discover/movie")!
->>>>>>> 0be226436787aaa860faaf0e242b315c6352e1c7
         urlComponents.queryItems = [
             URLQueryItem(name: "api_key", value: "840ad3585933c9e95f925127c092c385"),
             URLQueryItem(name: "query", value: name),
