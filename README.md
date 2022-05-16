@@ -1,4 +1,6 @@
 # Project-Movie
 
-ToolKit: SwiftUI
+ToolKit: SwiftUI || 
 Arquiterura: MVVM
+
+Resource used: API integraion
